@@ -1,0 +1,23 @@
+<script>
+    const numbers = [1, 2, 3];
+    const newNumbers1 = [numbers, 4];
+    // ... is spread operator
+    const newNumbers2 = [...numbers, 4];
+    console.log(newNumbers1);
+    console.log(newNumbers2);
+
+    const person = {
+        name: "Chirag",
+    };
+    const newPerson = {
+        ...person,
+        age: 96,
+    };
+    console.log(newPerson);
+
+    // rest operator
+    const filter = (...args) => {
+        return args.filter((el) => el === 3);
+    };
+    console.log(filter(1, 2, 3));
+</script>
