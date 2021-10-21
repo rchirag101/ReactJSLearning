@@ -31,7 +31,7 @@ function App() {
     return (
         <div>
             <h2>Hello World</h2>
-            <h2>Let's get started!</h2>
+            <h2>Let's build Expense Manager</h2>
             <ExpenseItem
                 title={expenses[0].title}
                 amount={expenses[0].amount}
