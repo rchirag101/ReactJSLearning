@@ -29,22 +29,22 @@ function App() {
         },
     ];
 
-    // return (
-    //     <div>
-    //         <h2>Hello World</h2>
-    //         <h2>Let's build Expense Manager</h2>
-    //         <Expenses items={expenses} />
-    //     </div>
-    // );
+    return (
+        <div>
+            <h2>Hello World</h2>
+            <h2>Let's build Expense Manager</h2>
+            <Expenses items={expenses} />
+        </div>
+    );
 
     // alternative of above return using React object
-    return React.createElement(
-        "div",
-        {},
-        React.createElement("h2", {}, "Hello World"),
-        React.createElement("h2", {}, "Let's build Expense Manager"),
-        React.createElement(Expenses, {items:expenses}),
-    );
+    // return React.createElement(
+    //     "div",
+    //     {},
+    //     React.createElement("h2", {}, "Hello World"),
+    //     React.createElement("h2", {}, "Let's build Expense Manager"),
+    //     React.createElement(Expenses, {items:expenses}),
+    // );
 }
 
 export default App;
