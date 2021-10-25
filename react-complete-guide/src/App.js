@@ -30,12 +30,16 @@ function App() {
         },
     ];
 
+    function addExpenseHandler(expense) {
+        console.log("In App.js");
+        console.log(expense);
+    }
     return (
         <div>
             <center>
                 <h2>Expense Manager</h2>
             </center>
-            <NewExpense />
+            <NewExpense onAddExpense={addExpenseHandler} />
             <Expenses items={expenses} />
         </div>
     );
