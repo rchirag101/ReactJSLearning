@@ -15,9 +15,16 @@ function ExpenseForm() {
     function titleChangeHandler(event) {
         // console.log(event.target.value);
         // setEnteredTitle(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredTitle: event.target.value,
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle: event.target.value,
+        // });
+        // alternative of above setUserInput(), note: use when state is State That Depends On The Previous State
+        setUserInput((prevState) => {
+            return {
+                ...prevState,
+                enteredTitle: event.target.value,
+            };
         });
     }
 
