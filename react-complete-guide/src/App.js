@@ -40,7 +40,8 @@ function App() {
             console.log(expense);
             console.log(prevExpenses);
             console.log([...prevExpenses, expense]);
-            return [...prevExpenses, expense];
+            // return [...prevExpenses, expense];
+            return [expense, ...prevExpenses];
         });
     }
 
