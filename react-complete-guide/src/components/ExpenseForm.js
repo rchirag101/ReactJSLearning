@@ -6,6 +6,8 @@ function ExpenseForm(props) {
     const [enteredAmount, setEnteredAmount] = useState("");
     const [enteredDate, setEnteredDate] = useState("");
 
+    var todaysDate = new Date().toISOString().split("T")[0];
+
     // multiple state to one state
     // const [userInput, setUserInput] = useState({
     //     enteredTitle: "",
@@ -47,6 +49,10 @@ function ExpenseForm(props) {
         // });
     }
 
+    function todayDateGetter(event) {
+        console.log("todayDateGetter is called");
+        todaysDate = new Date().toISOString().split("T")[0];
+    }
     function submitHandler(event) {
         event.preventDefault();
 
@@ -87,11 +93,13 @@ function ExpenseForm(props) {
                 <div className="new-expense__control">
                     <label>Date</label>
                     <input
+                        id="datePickerId"
                         type="date"
                         min="2020-01-01"
-                        max="2022-12-31"
+                        max={todaysDate}
                         value={enteredDate}
                         onChange={dateChangeHandler}
+                        onLoad={todayDateGetter()}
                     />
                 </div>
             </div>
