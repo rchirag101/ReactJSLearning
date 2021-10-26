@@ -78,6 +78,7 @@ function ExpenseForm(props) {
                         type="text"
                         value={enteredTitle}
                         onChange={titleChangeHandler}
+                        required="required"
                     />
                 </div>
                 <div className="new-expense__control">
@@ -88,6 +89,7 @@ function ExpenseForm(props) {
                         step="0.01"
                         value={enteredAmount}
                         onChange={amountChangeHandler}
+                        required="required"
                     />
                 </div>
                 <div className="new-expense__control">
@@ -100,6 +102,7 @@ function ExpenseForm(props) {
                         value={enteredDate}
                         onChange={dateChangeHandler}
                         onLoad={todayDateGetter()}
+                        required="required"
                     />
                 </div>
             </div>
