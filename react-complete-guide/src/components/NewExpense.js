@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./css/NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+import "./css/NewExpense.css";
 
 function NewExpense(props) {
     const [isEditing, setIsEditing] = useState(false);

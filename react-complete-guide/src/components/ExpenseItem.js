@@ -1,8 +1,8 @@
 import React from "react";
 // import React, { useState } from "react";
+import Card from "./Card";
 import ExpenseDate from "./ExpenseDate";
 import "./css/ExpenseItem.css";
-import Card from "./Card";
 
 function ExpenseItem(props) {
     // useState() returns array of two values
