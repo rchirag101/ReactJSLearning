@@ -37,6 +37,9 @@ function App() {
         console.log(expense);
         console.log(expenses);
         setExpenses((prevExpenses) => {
+            console.log(expense);
+            console.log(prevExpenses);
+            console.log([...prevExpenses, expense]);
             return [...prevExpenses, expense];
         });
     }
