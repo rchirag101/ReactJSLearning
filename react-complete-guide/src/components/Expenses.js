@@ -5,7 +5,7 @@ import "./css/Expenses.css";
 import Card from "./Card";
 
 function Expenses(props) {
-    const [filteredYear, setFilteredYear] = useState("2020");
+    const [filteredYear, setFilteredYear] = useState("2021");
 
     function filterChangeHandler(selectedYear) {
         console.log(selectedYear);
