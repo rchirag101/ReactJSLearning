@@ -17,6 +17,18 @@ function AddUser(props) {
 
     function addUserHandler(event) {
         event.preventDefault();
+
+        if (
+            enteredUsername.trim().length === 0 ||
+            enteredAge.trim().length === 0
+        ) {
+            return;
+        }
+        if (+enteredAge < 1) {
+            //So we have a string here, enteredAge, a string not a number. Now I'm comparing it to a number here. And generally that should work in JavaScript but to be super safe we can force a conversion of enteredAge to a number by adding a PLUS here. And with that we ensure that well, it is a number.
+            return;
+        }
+
         console.log(enteredUsername, enteredAge);
 
         // to set input boxes blank onSubmit | form resetting
