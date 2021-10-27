@@ -18,6 +18,10 @@ function AddUser(props) {
     function addUserHandler(event) {
         event.preventDefault();
         console.log(enteredUsername, enteredAge);
+
+        // to set input boxes blank onSubmit | form resetting
+        setEnteredUsername("");
+        setEnteredAge("");
     }
 
     return (
@@ -29,9 +33,15 @@ function AddUser(props) {
                     id="username"
                     type="text"
                     onChange={usernameChangeHandler}
+                    value={enteredUsername}
                 />
                 <label htmlFor="age">Age (Years)</label>
-                <input id="age" type="number" onChange={ageChangeHandler} />
+                <input
+                    id="age"
+                    type="number"
+                    onChange={ageChangeHandler}
+                    value={enteredAge}
+                />
                 <Button type="submit">Add User</Button>
             </form>
         </Card>
