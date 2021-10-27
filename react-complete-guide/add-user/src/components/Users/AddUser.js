@@ -29,7 +29,8 @@ function AddUser(props) {
             return;
         }
 
-        console.log(enteredUsername, enteredAge);
+        props.onAddUser(enteredUsername, enteredAge);
+        // console.log(enteredUsername, enteredAge);
 
         // to set input boxes blank onSubmit | form resetting
         setEnteredUsername("");
