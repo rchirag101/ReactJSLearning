@@ -2,11 +2,15 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
 
+import classes from "./RegistrationForm.module.css";
+
 function RegistrationForm(props) {
 	return (
-		<Container>
+		<Container className={classes.myContainer}>
 			<Row>
 				<Col>
+                <h1 className="text-center mt-3 mb-3">Register</h1>
+
 					<Form>
 						<Form.Group
 							className="mt-3 mb-3"
@@ -30,10 +34,7 @@ function RegistrationForm(props) {
 							></Form.Control>
 						</Form.Group>
 
-                        <Form.Group
-							className="mt-3 mb-3"
-							controlId="formPhone"
-						>
+						<Form.Group className="mt-3 mb-3" controlId="formPhone">
 							<Form.Label>Phone Number</Form.Label>
 							<Form.Control
 								type="number"
