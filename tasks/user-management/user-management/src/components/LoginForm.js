@@ -1,13 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-	Container,
-	Row,
-	Col,
-	Form,
-	Button,
-	NavLink,
-} from "react-bootstrap";
+import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
 
 function LoginForm(props) {
 	return (
@@ -40,7 +33,7 @@ function LoginForm(props) {
 							Login
 						</Button>
 
-						<NavLink href="/register">
+						<NavLink href="/register" className="text-end">
 							Don't have an account? Register
 						</NavLink>
 					</Form>
