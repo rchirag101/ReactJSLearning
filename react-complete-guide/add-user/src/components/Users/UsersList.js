@@ -3,6 +3,16 @@ import Card from "../UI/Card";
 import classes from "./UsersList.module.css";
 
 function UsersList(props) {
+    if (props.users.length === 0) {
+        return (
+            <Card className={`${classes.users} ${classes.noUsersCard}`}>
+                <center>
+                    <h4>No Users found</h4>
+                </center>
+            </Card>
+        );
+    }
+
     return (
         <Card className={classes.users}>
             <ul>
