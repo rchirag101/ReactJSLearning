@@ -49,10 +49,18 @@ function AddUser(props) {
         setEnteredAge("");
     }
 
+    function errorHandler() {
+        setError(null);
+    }
+
     return (
         <div>
             {error && (
-                <ErrorModal title={error.title} message={error.message} />
+                <ErrorModal
+                    title={error.title}
+                    message={error.message}
+                    onConfirm={errorHandler}
+                />
             )}
             {/* we can use className for Card because it defined in Card.js as props.className */}
             <Card className={classes.input}>
