@@ -1,19 +1,15 @@
 import React from "react";
-import Wrapper from "./components/Helpers/Wrapper";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import { Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Wrapper from "./components/Helpers/Wrapper";
+import Navigation from "./components/Navigation";
 
 function App() {
 	return (
 		<Wrapper>
-			<form>
-				<label htmlFor="email">Email</label>
-				<input id="email" type="email" />
-				<label htmlFor="password">Password</label>
-				<input id="password" type="password" />
-				<Button type="submit">Login</Button>
-			</form>
+			<Router>
+				<Navigation />
+			</Router>
 		</Wrapper>
 	);
 }
