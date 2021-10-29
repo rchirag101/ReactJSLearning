@@ -1,7 +1,7 @@
 import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Table, NavLink } from "react-bootstrap";
+import { Container, Table, Button } from "react-bootstrap";
 import classes from "./css/Dashboard.module.css";
 
 import Wrapper from "./Helpers/Wrapper";
@@ -15,7 +15,6 @@ function Dashboard(props) {
 			phone: "9898989898",
 			email: "cr@gmail.com",
 			password: "1234",
-			actions: "Edit | Delete",
 		},
 		{
 			id: 2,
@@ -24,7 +23,6 @@ function Dashboard(props) {
 			phone: "7878787878",
 			email: "pr@gmail.com",
 			password: "asdf ",
-			actions: "Edit | Delete",
 		},
 	];
 
@@ -55,8 +53,20 @@ function Dashboard(props) {
 								<td>{item.email}</td>
 								<td>{item.password}</td>
 								<td>
-									<NavLink href="/">Edit</NavLink>
-									<NavLink href="/">Delete</NavLink>
+									<Button
+										variant="primary"
+										href="/"
+										className="m-1"
+									>
+										Edit
+									</Button>
+									<Button
+										variant="danger"
+										href="/"
+										className="m-1"
+									>
+										Delete
+									</Button>
 								</td>
 							</tr>
 						))}
