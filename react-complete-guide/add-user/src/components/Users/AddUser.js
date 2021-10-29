@@ -12,6 +12,8 @@ function AddUser(props) {
 	// We use the useRef hook here and we then simply call useRef here in our code, in our functional component.
 	// And like all React hooks, useRef is only usable inside of functional components.
 
+	// if you just want to read a value(not change), refs are probably better.
+
 	//about value of useRef():
 	// This ref value, which is being generated here always is an object, which always has a current prop and the current prop holds the actual value that ref is connected with.
 	// Now, by default, it's undefined but as soon as this code ran, because of this ref prop, the nameInputRef is connected to that input and hence,
@@ -51,6 +53,10 @@ function AddUser(props) {
 
 		props.onAddUser(enteredName, enteredUserAge);
 		// console.log(enteredName, enteredUserAge);
+
+		// form resetting
+		nameInputRef.current.value = "";
+		ageInputRef.current.value = "";
 	}
 
 	function errorHandler() {
