@@ -47,9 +47,6 @@ function LoginForm(props) {
 								Login
 							</Button>
 
-							{/* <Link to="/register" className="text-end">
-								Don't have an account? Register
-							</Link> */}
 							<NavLink href="/register" className="text-end">
 								Don't have an account? Register
 							</NavLink>
