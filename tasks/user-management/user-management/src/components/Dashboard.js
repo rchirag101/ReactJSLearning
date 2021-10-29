@@ -1,41 +1,13 @@
 import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import { Container, Table, NavLink } from "react-bootstrap";
 import classes from "./css/Dashboard.module.css";
 
 import Wrapper from "./Helpers/Wrapper";
-import DataTable from "react-data-table-component";
 
 function Dashboard(props) {
-	const columns = [
-		{
-			name: "First Name",
-			selector: (row) => row.fn,
-		},
-		{
-			name: "Last Name",
-			selector: (row) => row.ln,
-		},
-		{
-			name: "Phone Number",
-			selector: (row) => row.phone,
-		},
-		{
-			name: "Email",
-			selector: (row) => row.email,
-		},
-		{
-			name: "Password",
-			selector: (row) => row.password,
-		},
-		{
-			name: "Actions",
-			selector: (row) => row.actions,
-		},
-	];
-
-	const data = [
+	const users = [
 		{
 			id: 1,
 			fn: "Chirag",
@@ -47,27 +19,49 @@ function Dashboard(props) {
 		},
 		{
 			id: 2,
-			fn: "Chirag",
+			fn: "Pavan",
 			ln: "Ramchandanee",
-			phone: "9898989898",
-			email: "cr@gmail.com",
-			password: "1234",
+			phone: "7878787878",
+			email: "pr@gmail.com",
+			password: "asdf ",
 			actions: "Edit | Delete",
 		},
 	];
+
 	return (
 		<Wrapper>
 			<Container className={`mt-4 ${classes.myContainer}`}>
-				{/* <h2>Welcome</h2>
-				<ul>
-					{["Alex", "John", "Jaz", "fedrik", "missali"].map(
-						(user, idx) => {
-							return <li key={idx}>{user}</li>;
-						}
-					)}
-				</ul> */}
+				<h2 className="text-start mt-3 mb-3">Users</h2>
 
-				<DataTable columns={columns} data={data}></DataTable>
+				<Table responsive bordered>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Phone Number</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody className="align-middle">
+						{users.map((item) => (
+							<tr key={item.id}>
+								<td>{item.id}</td>
+								<td>{item.fn}</td>
+								<td>{item.ln}</td>
+								<td>{item.phone}</td>
+								<td>{item.email}</td>
+								<td>{item.password}</td>
+								<td>
+									<NavLink href="/">Edit</NavLink>
+									<NavLink href="/">Delete</NavLink>
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</Table>
 			</Container>
 		</Wrapper>
 	);
