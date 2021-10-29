@@ -86,3 +86,20 @@ function AddUser(props) {
 	);
 }
 export default AddUser;
+
+
+
+// endNote
+// Uncontrolled Components :
+// 	Now, this approach of using refs to interact with dom elements specifically with input elements also has a special name. 
+// 	We're talking about uncontrolled components if we access values with a ref.
+// 	So these input components here, would now be uncontrolled components.
+// 	Why uncontrolled? Because they're internal state,so to value which is reflected in them  is not controlled by react.
+// 	We rely on the default behavior of the input  where a user of course is able to enter something and that entered value is reflected. And we then just Fetch it, with a react feature but we don't feed data back into the input.
+// 	When I set a new value to those inputs here  with this work around, we're absolutely not using react here. 
+// 	Sure we're using the ref, but in the end we get access to the native dom element with that and I then just use the regular dom API for setting the value of a dom node of a input dom node.
+// 	So that's why this is uncontrolled  because we're not controlling these state off the input element with react.  
+
+// Controlled Components :
+// 	The approach we had before, where we manage our state and we updated that state on every keystroke  and we feed that state back into the input with the value prop, so that approach we had before we added refs, that would be the controlled approach.
+// 	Then we would say that those input fields are controlled components because their internal state is controlled by react.
