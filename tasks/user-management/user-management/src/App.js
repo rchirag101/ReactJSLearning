@@ -5,6 +5,7 @@ import Wrapper from "./components/Helpers/Wrapper";
 import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 						component={() => <RegistrationForm />}
 					/>
 				</Switch>
+				
 			</Router>
 		</Wrapper>
 	);
