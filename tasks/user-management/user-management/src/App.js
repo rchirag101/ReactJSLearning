@@ -5,7 +5,7 @@ import Wrapper from "./components/Helpers/Wrapper";
 import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
-import Footer from "./components/Footer";
+import Dashboard from "./components/Dashboard";
 
 function App() {
 	return (
@@ -20,7 +20,11 @@ function App() {
 						component={() => <RegistrationForm />}
 					/>
 				</Switch>
-				
+				<Route
+					path="/dashboard"
+					exact
+					component={() => <Dashboard />}
+				/>
 			</Router>
 		</Wrapper>
 	);

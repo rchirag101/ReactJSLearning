@@ -1,4 +1,7 @@
 import React from "react";
+
+import { useHistory, Link } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
 
@@ -7,13 +10,19 @@ import Wrapper from "./Helpers/Wrapper";
 import Footer from "./Footer";
 
 function LoginForm(props) {
+	const history = useHistory();
+
+	function loginHandler(event) {
+		event.preventDefault();
+		history.push("/dashboard");
+	}
 	return (
 		<Wrapper>
 			<Container className={classes.myContainer}>
 				<Row>
 					<Col>
 						<h1 className="text-center mt-3 mb-3">Login</h1>
-						<Form>
+						<Form onSubmit={loginHandler}>
 							<Form.Group
 								className="mt-3 mb-3"
 								controlId="formBasicEmail"
@@ -39,6 +48,9 @@ function LoginForm(props) {
 								Login
 							</Button>
 
+							{/* <Link to="/register" className="text-end">
+								Don't have an account? Register
+							</Link> */}
 							<NavLink href="/register" className="text-end">
 								Don't have an account? Register
 							</NavLink>
