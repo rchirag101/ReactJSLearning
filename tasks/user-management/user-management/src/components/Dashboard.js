@@ -55,7 +55,7 @@ function Dashboard(props) {
 								<td>
 									<Button
 										variant="primary"
-										href="/"
+										href="/editUserData"
 										className="m-1"
 									>
 										Edit

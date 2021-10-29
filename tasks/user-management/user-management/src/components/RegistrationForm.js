@@ -29,7 +29,7 @@ function RegistrationForm(props) {
 								className="mt-3 mb-3"
 								controlId="formLastName"
 							>
-								<Form.Label>Surname</Form.Label>
+								<Form.Label>Last Name</Form.Label>
 								<Form.Control
 									type="text"
 									placeholder="Enter Your surname"

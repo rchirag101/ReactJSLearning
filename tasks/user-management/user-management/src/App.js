@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import LoginForm from "./components/LoginForm";
 import RegistrationForm from "./components/RegistrationForm";
 import Dashboard from "./components/Dashboard";
+import EditUserData from "./components/EditUserData";
 
 function App() {
 	return (
@@ -24,6 +25,11 @@ function App() {
 					path="/dashboard"
 					exact
 					component={() => <Dashboard />}
+				/>
+				<Route
+					path="/editUserData"
+					exact
+					component={() => <EditUserData />}
 				/>
 			</Router>
 		</Wrapper>
