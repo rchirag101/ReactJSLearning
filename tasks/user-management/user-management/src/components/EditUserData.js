@@ -1,19 +1,26 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import classes from "./css/EditUserData.module.css";
 
 import Wrapper from "./Helpers/Wrapper";
 
 function EditUserData(params) {
+	const history = useHistory();
+
+	function updateDataHandler(event) {
+		event.preventDefault();
+		history.push("/dashboard");
+	}
 	return (
 		<Wrapper>
 			<Container className={classes.myContainer}>
 				<Row>
 					<Col>
 						<h1 className="text-start mt-4 mb-4">Edit User Data</h1>
-						<Form>
+						<Form onSubmit={updateDataHandler}>
 							<Form.Group
 								className="mt-3 mb-3"
 								controlId="formFirstName"

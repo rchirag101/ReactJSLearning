@@ -1,6 +1,5 @@
 import React from "react";
-
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
