@@ -15,6 +15,8 @@ function RegistrationForm(props) {
 	const [enteredConfirmedPassword, setEnteredConfirmedPassword] =
 		useState("");
 
+	var users = JSON.parse(localStorage.getItem("users"));
+
 	function firstnameChangeHandler(event) {
 		setEnteredFirstname(event.target.value);
 	}
@@ -40,7 +42,26 @@ function RegistrationForm(props) {
 
 	function registrationHandler(event) {
 		event.preventDefault();
-		console.log("registrationHandler ");
+
+		const user = {
+			firstname: enteredFirstname,
+			lastname: enteredLastname,
+			phone: enteredPhone,
+			email: enteredEmail,
+			password: enteredPassword,
+		};
+
+		if (users === null) {
+			users = [];
+		}
+
+		if (enteredPassword === enteredConfirmedPassword) {
+			users = [...users, user];
+			localStorage.setItem("users", JSON.stringify(users));
+			console.log(user);
+		} else {
+			console.log("Password Mismatch");
+		}
 	}
 
 	return (
