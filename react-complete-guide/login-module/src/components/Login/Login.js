@@ -136,3 +136,22 @@ const Login = (props) => {
 };
 
 export default Login;
+
+// endNote:
+// when to use useState vs useReducer,
+
+// useState:
+// 	useState is main state management tool.
+// 	Typically, start with useState and often it's all we need.
+// 	It's great for independent pieces of state and data.
+// 	It's great for simple state, we could say.
+// 	It's great if state updates are easy and limited to a few kinds of updates.
+// 	So, if we don't have a lot of different cases that will change a state and especially if we don't have, let's say, an object as a state or anything like that.
+
+// useReducer:
+// 	Now, if we do have an object as a state or a more complex state useReducer might be interesting because, in general, useReducer is great if we need more power and with more power,
+// 	It simply mean that weF can write such a reducer function that can contain more complex state updating logic where we always are guaranteed to work with the latest state snapshot.
+// 	And where we can move that potentially more complex logic out of wer component function body into a separate reducer function.
+// 	So, all the restructure code, that might be interesting.
+// 	We should especially consider useReducer, if we're dealing with related data with state that is made up of related pieces of state.
+// 	So when we, for example, have a scenario, as we had it with our form input state. And, in general, useReducer can be helpful if we have more complex state updates, if we have different cases, different actions that can change a state, cases like this.
