@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
 
@@ -7,13 +7,49 @@ import Footer from "./Footer";
 import Wrapper from "./Helpers/Wrapper";
 
 function RegistrationForm(props) {
+	const [enteredFirstname, setEnteredFirstname] = useState("");
+	const [enteredLastname, setEnteredLastname] = useState("");
+	const [enteredPhone, setEnteredPhone] = useState("");
+	const [enteredEmail, setEnteredEmail] = useState("");
+	const [enteredPassword, setEnteredPassword] = useState("");
+	const [enteredConfirmedPassword, setEnteredConfirmedPassword] =
+		useState("");
+
+	function firstnameChangeHandler(event) {
+		setEnteredFirstname(event.target.value);
+	}
+
+	function lastnameChangeHandler(event) {
+		setEnteredLastname(event.target.value);
+	}
+
+	function phoneChangeHandler(event) {
+		setEnteredPhone(event.target.value);
+	}
+	function emailChangeHandler(event) {
+		setEnteredEmail(event.target.value);
+	}
+
+	function passwordChangeHandler(event) {
+		setEnteredPassword(event.target.value);
+	}
+
+	function confirmPasswordChangeHandler(event) {
+		setEnteredConfirmedPassword(event.target.value);
+	}
+
+	function registrationHandler(event) {
+		event.preventDefault();
+		console.log("registrationHandler ");
+	}
+
 	return (
 		<Wrapper>
 			<Container className={classes.myContainer}>
 				<Row>
 					<Col>
 						<h1 className="text-center mt-3 mb-3">Register</h1>
-						<Form>
+						<Form onSubmit={registrationHandler}>
 							<Form.Group
 								className="mt-3 mb-3"
 								controlId="formFirstName"
@@ -22,6 +58,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="text"
 									placeholder="Enter Your First name"
+									value={enteredFirstname}
+									onChange={firstnameChangeHandler}
 								></Form.Control>
 							</Form.Group>
 
@@ -33,6 +71,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="text"
 									placeholder="Enter Your surname"
+									value={enteredLastname}
+									onChange={lastnameChangeHandler}
 								></Form.Control>
 							</Form.Group>
 
@@ -44,6 +84,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="number"
 									placeholder="Enter Your phone number"
+									value={enteredPhone}
+									onChange={phoneChangeHandler}
 								></Form.Control>
 							</Form.Group>
 
@@ -55,6 +97,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="email"
 									placeholder="Enter email"
+									value={enteredEmail}
+									onChange={emailChangeHandler}
 								></Form.Control>
 							</Form.Group>
 							<Form.Group
@@ -65,6 +109,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="password"
 									placeholder="Enter password"
+									value={enteredPassword}
+									onChange={passwordChangeHandler}
 								></Form.Control>
 							</Form.Group>
 							<Form.Group
@@ -75,6 +121,8 @@ function RegistrationForm(props) {
 								<Form.Control
 									type="password"
 									placeholder="Enter password again"
+									value={enteredConfirmedPassword}
+									onChange={confirmPasswordChangeHandler}
 								></Form.Control>
 							</Form.Group>
 
