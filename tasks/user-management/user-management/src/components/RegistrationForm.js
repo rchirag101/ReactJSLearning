@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
 
@@ -16,6 +18,8 @@ function RegistrationForm(props) {
 		useState("");
 
 	var users = JSON.parse(localStorage.getItem("users"));
+
+	const history = useHistory();
 
 	function firstnameChangeHandler(event) {
 		setEnteredFirstname(event.target.value);
@@ -68,7 +72,7 @@ function RegistrationForm(props) {
 			localStorage.setItem("users", JSON.stringify(users));
 			resetForm();
 			alert("Registration Successful");
-			console.log("user registered");
+			history.push("/");
 		} else {
 			console.log("Password Mismatch");
 		}
