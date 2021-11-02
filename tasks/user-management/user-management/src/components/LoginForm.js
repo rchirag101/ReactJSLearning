@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,12 +9,36 @@ import Wrapper from "./Helpers/Wrapper";
 import Footer from "./Footer";
 
 function LoginForm(props) {
+	const emailInputRef = useRef();
+	const passwordInputRef = useRef();
+
 	const history = useHistory();
 
 	function loginHandler(event) {
 		event.preventDefault();
-		history.push("/dashboard");
+
+		const enteredEmail = emailInputRef.current.value;
+		const enteredPassword = passwordInputRef.current.value;
+
+		var users = JSON.parse(localStorage.getItem("users"));
+
+		const userExists = users.filter(
+			(u) => u.email === enteredEmail && u.password === enteredPassword
+		);
+
+		if (userExists.length > 0) {
+			resetForm();
+			history.push("/dashboard");
+		} else {
+			alert("Invalid credentials");
+		}
 	}
+
+	function resetForm() {
+		emailInputRef.current.value = "";
+		passwordInputRef.current.value = "";
+	}
+
 	return (
 		<Wrapper>
 			<Container className={classes.myContainer}>
@@ -28,9 +52,11 @@ function LoginForm(props) {
 							>
 								<Form.Label>Email Address</Form.Label>
 								<Form.Control
+									required
 									type="email"
 									placeholder="Enter email"
-								></Form.Control>
+									ref={emailInputRef}
+								/>
 							</Form.Group>
 							<Form.Group
 								className="mb-3"
@@ -38,9 +64,11 @@ function LoginForm(props) {
 							>
 								<Form.Label>Password</Form.Label>
 								<Form.Control
+									required
 									type="password"
 									placeholder="Enter password"
-								></Form.Control>
+									ref={passwordInputRef}
+								/>
 							</Form.Group>
 
 							<Button type="submit" variant="primary">
