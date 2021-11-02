@@ -58,10 +58,20 @@ function RegistrationForm(props) {
 		if (enteredPassword === enteredConfirmedPassword) {
 			users = [...users, user];
 			localStorage.setItem("users", JSON.stringify(users));
-			console.log(user);
+			resetForm();
+			console.log("user registered");
 		} else {
 			console.log("Password Mismatch");
 		}
+	}
+
+	function resetForm() {
+		setEnteredFirstname("");
+		setEnteredLastname("");
+		setEnteredPhone("");
+		setEnteredEmail("");
+		setEnteredPassword("");
+		setEnteredConfirmedPassword("");
 	}
 
 	return (
