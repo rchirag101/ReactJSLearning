@@ -20,17 +20,17 @@ function App() {
 						exact
 						component={() => <RegistrationForm />}
 					/>
+					<Route
+						path="/dashboard"
+						exact
+						component={() => <Dashboard />}
+					/>
+					<Route
+						path="/editUserData"
+						exact
+						component={() => <EditUserData />}
+					/>
 				</Switch>
-				<Route
-					path="/dashboard"
-					exact
-					component={() => <Dashboard />}
-				/>
-				<Route
-					path="/editUserData"
-					exact
-					component={() => <EditUserData />}
-				/>
 			</Router>
 		</Wrapper>
 	);
