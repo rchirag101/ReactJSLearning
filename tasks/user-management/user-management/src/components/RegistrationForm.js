@@ -67,12 +67,18 @@ function RegistrationForm(props) {
 			password: enteredPassword,
 		};
 
+		const userExists = users.filter((u) => u.email === enteredEmail);
+
 		if (enteredPassword === enteredConfirmedPassword) {
-			users = [...users, user];
-			localStorage.setItem("users", JSON.stringify(users));
-			resetForm();
-			alert("Registration Successful");
-			history.push("/");
+			if (userExists.length === 0) {
+				users = [...users, user];
+				localStorage.setItem("users", JSON.stringify(users));
+				resetForm();
+				alert("Registration Successful");
+				history.push("/");
+			} else {
+				alert("This user is already registered");
+			}
 		} else {
 			console.log("Password Mismatch");
 		}
