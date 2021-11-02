@@ -53,7 +53,7 @@ function RegistrationForm(props) {
 		}
 
 		console.log(usersCount);
-		
+
 		const user = {
 			id: usersCount + 1,
 			firstname: enteredFirstname,
@@ -67,6 +67,7 @@ function RegistrationForm(props) {
 			users = [...users, user];
 			localStorage.setItem("users", JSON.stringify(users));
 			resetForm();
+			alert("Registration Successful");
 			console.log("user registered");
 		} else {
 			console.log("Password Mismatch");
@@ -95,11 +96,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>First Name</Form.Label>
 								<Form.Control
+									required
 									type="text"
 									placeholder="Enter Your First name"
 									value={enteredFirstname}
 									onChange={firstnameChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 
 							<Form.Group
@@ -108,11 +110,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>Last Name</Form.Label>
 								<Form.Control
+									required
 									type="text"
 									placeholder="Enter Your surname"
 									value={enteredLastname}
 									onChange={lastnameChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 
 							<Form.Group
@@ -121,11 +124,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>Phone Number</Form.Label>
 								<Form.Control
+									required
 									type="number"
 									placeholder="Enter Your phone number"
 									value={enteredPhone}
 									onChange={phoneChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 
 							<Form.Group
@@ -134,11 +138,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>Email Address</Form.Label>
 								<Form.Control
+									required
 									type="email"
 									placeholder="Enter email"
 									value={enteredEmail}
 									onChange={emailChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 							<Form.Group
 								className="mb-3"
@@ -146,11 +151,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>Password</Form.Label>
 								<Form.Control
+									required
 									type="password"
 									placeholder="Enter password"
 									value={enteredPassword}
 									onChange={passwordChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 							<Form.Group
 								className="mb-3"
@@ -158,11 +164,12 @@ function RegistrationForm(props) {
 							>
 								<Form.Label>Confirm Password</Form.Label>
 								<Form.Control
+									required
 									type="password"
 									placeholder="Enter password again"
 									value={enteredConfirmedPassword}
 									onChange={confirmPasswordChangeHandler}
-								></Form.Control>
+								/>
 							</Form.Group>
 
 							<Button type="submit" variant="primary">
