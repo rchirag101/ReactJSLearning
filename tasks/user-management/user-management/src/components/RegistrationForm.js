@@ -43,17 +43,25 @@ function RegistrationForm(props) {
 	function registrationHandler(event) {
 		event.preventDefault();
 
+		let usersCount;
+
+		if (users === null) {
+			users = [];
+			usersCount = 0;
+		} else {
+			usersCount = users.length;
+		}
+
+		console.log(usersCount);
+		
 		const user = {
+			id: usersCount + 1,
 			firstname: enteredFirstname,
 			lastname: enteredLastname,
 			phone: enteredPhone,
 			email: enteredEmail,
 			password: enteredPassword,
 		};
-
-		if (users === null) {
-			users = [];
-		}
 
 		if (enteredPassword === enteredConfirmedPassword) {
 			users = [...users, user];
