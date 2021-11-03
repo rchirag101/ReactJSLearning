@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
@@ -75,7 +75,11 @@ function LoginForm(props) {
 								Login
 							</Button>
 
-							<NavLink href="/register" className="text-end">
+							<NavLink
+								as={Link}
+								to="/register"
+								className="text-end"
+							>
 								Don't have an account? Register
 							</NavLink>
 						</Form>

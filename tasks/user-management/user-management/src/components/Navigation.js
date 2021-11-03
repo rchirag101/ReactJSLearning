@@ -13,8 +13,12 @@ function Navigation(props) {
 						User Management
 					</Link>
 					<Nav className="ml-auto">
-						<Nav.Link href="/">Login</Nav.Link>
-						<Nav.Link href="/register">Register</Nav.Link>
+						<Nav.Link as={Link} to="/">
+							Login
+						</Nav.Link>
+						<Nav.Link as={Link} to="/register">
+							Register
+						</Nav.Link>
 					</Nav>
 				</Container>
 			</Navbar>

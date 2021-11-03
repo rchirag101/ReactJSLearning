@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Table, Button } from "react-bootstrap";
@@ -43,7 +44,8 @@ function Dashboard(props) {
 									<td>
 										<Button
 											variant="primary"
-											href="/editUserData"
+											as={Link}
+											to="/editUserData"
 											className="m-1"
 										>
 											Edit

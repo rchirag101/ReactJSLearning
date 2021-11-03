@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, NavLink } from "react-bootstrap";
@@ -186,7 +186,7 @@ function RegistrationForm(props) {
 								Register
 							</Button>
 
-							<NavLink href="/" className="text-end">
+							<NavLink as={Link} to="/" className="text-end">
 								Already have an account? Log In
 							</NavLink>
 						</Form>
