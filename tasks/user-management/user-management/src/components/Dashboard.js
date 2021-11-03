@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +8,15 @@ import classes from "./css/Dashboard.module.css";
 import Wrapper from "./Helpers/Wrapper";
 
 function Dashboard(props) {
-	var users = JSON.parse(localStorage.getItem("users"));
+	const [users, setUsers] = useState(
+		JSON.parse(localStorage.getItem("users"))
+	);
+
+	function deleteUserHandler(id) {
+		users.splice(id, 1);
+		localStorage.setItem("users", JSON.stringify(users));
+		setUsers([...users]);
+	}
 
 	return (
 		<Wrapper>
@@ -33,9 +41,9 @@ function Dashboard(props) {
 								<h2>No Users Found</h2>
 							</tr>
 						) : (
-							users.map((item) => (
+							users.map((item, i) => (
 								<tr key={item.id}>
-									<td>{item.id}</td>
+									<td>{i + 1}</td>
 									<td>{item.firstname}</td>
 									<td>{item.lastname}</td>
 									<td>{item.phone}</td>
@@ -52,8 +60,8 @@ function Dashboard(props) {
 										</Button>
 										<Button
 											variant="danger"
-											href="/"
 											className="m-1"
+											onClick={() => deleteUserHandler(i)}
 										>
 											Delete
 										</Button>
