@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,21 +8,52 @@ import classes from "./css/EditUserData.module.css";
 import Wrapper from "./Helpers/Wrapper";
 
 function EditUserData(props) {
-	const location = useLocation();
+	const firstnameInputRef = useRef();
+	const lastnameInputRef = useRef();
+	const phoneInputRef = useRef();
+
 	const history = useHistory();
 
-	const userData = location.userData; // catching specific user's data from dashboard
+	const users = JSON.parse(localStorage.getItem("users"));
 
-	const firstname = userData.firstname;
-	const lastname = userData.lastname;
-	const phone = userData.phone;
+	const location = useLocation();
+	const userId = location.userId; // catching specific user's data from dashboard
+
+	// from DB
+	const firstname = users[userId].firstname;
+	const lastname = users[userId].lastname;
+	const phone = users[userId].phone;
 
 	function updateDataHandler(event) {
 		event.preventDefault();
-		console.log(userData.firstname);
-		console.log(userData.lastname);
-		console.log(userData.phone);
-		// history.push("/dashboard");
+
+		console.log(firstname);
+		console.log(lastname);
+		console.log(phone);
+
+		// current new values using useRef()
+		const newFirstname = firstnameInputRef.current.value;
+		const newLastname = lastnameInputRef.current.value;
+		const newPhone = phoneInputRef.current.value;
+		console.log(newFirstname);
+		console.log(newLastname);
+		console.log(newPhone);
+
+		const newData = users.map((x) => {
+			if (x.id === users[userId].id) {
+				return {
+					...x,
+					firstname: newFirstname,
+					lastname: newLastname,
+					phone: newPhone,
+				};
+			}
+			return x;
+		});
+
+		localStorage.setItem("users", JSON.stringify(newData));
+
+		history.push("/dashboard");
 	}
 
 	return (
@@ -41,6 +72,7 @@ function EditUserData(props) {
 									type="text"
 									placeholder="Update First name"
 									defaultValue={firstname}
+									ref={firstnameInputRef}
 								></Form.Control>
 							</Form.Group>
 
@@ -53,6 +85,7 @@ function EditUserData(props) {
 									type="text"
 									placeholder="Update surname"
 									defaultValue={lastname}
+									ref={lastnameInputRef}
 								></Form.Control>
 							</Form.Group>
 
@@ -65,6 +98,7 @@ function EditUserData(props) {
 									type="number"
 									placeholder="Update phone number"
 									defaultValue={phone}
+									ref={phoneInputRef}
 								></Form.Control>
 							</Form.Group>
 

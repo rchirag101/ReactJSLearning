@@ -62,7 +62,7 @@ function Dashboard(props) {
 											as={Link}
 											to={{
 												pathname: "/editUserData",
-												userData: users[i],
+												userId: i,
 											}}
 											className="m-1"
 											// onClick={() => editUserHandler(i)}
