@@ -18,6 +18,13 @@ function Dashboard(props) {
 		setUsers([...users]);
 	}
 
+	// function editUserHandler(id) {
+	// 	console.log(users[id]);
+	// 	// users.splice(id, 1);
+	// 	// localStorage.setItem("users", JSON.stringify(users));
+	// 	// setUsers([...users]);
+	// }
+
 	return (
 		<Wrapper>
 			<Container className={`mt-4 ${classes.myContainer}`}>
@@ -42,7 +49,7 @@ function Dashboard(props) {
 							</tr>
 						) : (
 							users.map((item, i) => (
-								<tr key={item.id}>
+								<tr key={i}>
 									<td>{i + 1}</td>
 									<td>{item.firstname}</td>
 									<td>{item.lastname}</td>
@@ -53,8 +60,12 @@ function Dashboard(props) {
 										<Button
 											variant="primary"
 											as={Link}
-											to="/editUserData"
+											to={{
+												pathname: "/editUserData",
+												userData: users[i],
+											}}
 											className="m-1"
+											// onClick={() => editUserHandler(i)}
 										>
 											Edit
 										</Button>

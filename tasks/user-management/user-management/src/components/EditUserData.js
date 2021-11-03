@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
@@ -7,13 +7,24 @@ import classes from "./css/EditUserData.module.css";
 
 import Wrapper from "./Helpers/Wrapper";
 
-function EditUserData(params) {
+function EditUserData(props) {
+	const location = useLocation();
 	const history = useHistory();
+
+	const userData = location.userData; // catching specific user's data from dashboard
+
+	const firstname = userData.firstname;
+	const lastname = userData.lastname;
+	const phone = userData.phone;
 
 	function updateDataHandler(event) {
 		event.preventDefault();
-		history.push("/dashboard");
+		console.log(userData.firstname);
+		console.log(userData.lastname);
+		console.log(userData.phone);
+		// history.push("/dashboard");
 	}
+
 	return (
 		<Wrapper>
 			<Container className={classes.myContainer}>
@@ -29,6 +40,7 @@ function EditUserData(params) {
 								<Form.Control
 									type="text"
 									placeholder="Update First name"
+									defaultValue={firstname}
 								></Form.Control>
 							</Form.Group>
 
@@ -40,6 +52,7 @@ function EditUserData(params) {
 								<Form.Control
 									type="text"
 									placeholder="Update surname"
+									defaultValue={lastname}
 								></Form.Control>
 							</Form.Group>
 
@@ -51,6 +64,7 @@ function EditUserData(params) {
 								<Form.Control
 									type="number"
 									placeholder="Update phone number"
+									defaultValue={phone}
 								></Form.Control>
 							</Form.Group>
 
