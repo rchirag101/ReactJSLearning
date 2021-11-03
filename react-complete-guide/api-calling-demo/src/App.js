@@ -4,9 +4,9 @@ import "./css/App.css";
 class App extends React.Component {
 	render() {
 		return (
-			<center>
+			<div className="App">
 				<h1>API Calling Demo</h1>
-			</center>
+			</div>
 		);
 	}
 }
