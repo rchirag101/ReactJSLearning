@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
+
+import AuthContext from "../../context/auth-context";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -39,6 +41,8 @@ const Login = (props) => {
 		value: "",
 		isValid: null,
 	});
+
+	const authCtx = useContext(AuthContext);
 
 	useEffect(() => {
 		console.log("EFFECT RUNNING");
@@ -87,7 +91,7 @@ const Login = (props) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault();
-		props.onLogin(emailState.value, passwordState.value);
+		authCtx.onLogin(emailState.value, passwordState.value);
 	};
 
 	return (
