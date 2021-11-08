@@ -29,6 +29,9 @@ function LoginForm(props) {
 		if (userExists.length > 0) {
 			resetForm();
 			history.push("/dashboard");
+
+			localStorage.setItem("isLoggedIn", "1");
+			window.location.reload(false);
 		} else {
 			alert("Invalid credentials");
 		}
