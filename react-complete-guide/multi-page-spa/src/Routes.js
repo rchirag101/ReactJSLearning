@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router";
 
 import Welcome from "./pages/Welcome";
 import Products from "./pages/Products";
@@ -7,6 +7,9 @@ import ProductDetail from "./pages/ProductDetail";
 function Routes() {
 	return (
 		<Switch>
+			<Route path="/" exact>
+				<Redirect to="/welcome" />
+			</Route>
 			<Route path="/welcome">
 				<Welcome />
 			</Route>
