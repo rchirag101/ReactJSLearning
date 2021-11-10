@@ -1,5 +1,7 @@
 import { Fragment } from "react";
-import { useParams } from "react-router";
+import { Route, useParams } from "react-router";
+
+import Comments from "../components/comments/Comments";
 
 function QuoteDetail() {
 	const params = useParams();
@@ -8,6 +10,11 @@ function QuoteDetail() {
 		<Fragment>
 			<h1>QuoteDetail</h1>
 			<p>{params.quoteId}</p>
+
+			{/* Nested Route */}
+			<Route path={`/quotes/${params.quoteId}/comments`}>
+				<Comments />
+			</Route>
 		</Fragment>
 	);
 }
