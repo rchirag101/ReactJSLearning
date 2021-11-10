@@ -1,4 +1,5 @@
-import { Route, Switch } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
+
 import AllQuotes from "./pages/AllQuotes";
 import NewQuote from "./pages/NewQuote";
 import QuoteDetail from "./pages/QuoteDetail";
@@ -6,6 +7,9 @@ import QuoteDetail from "./pages/QuoteDetail";
 function Routes() {
 	return (
 		<Switch>
+			<Route path="/" exact>
+				<Redirect to="/quotes" />
+			</Route>
 			<Route path="/quotes" exact>
 				<AllQuotes />
 			</Route>
