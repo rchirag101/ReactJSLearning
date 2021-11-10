@@ -7,6 +7,7 @@ import "./css/App.css";
 
 function App() {
 	const [showParagraph, setShowParagraph] = useState(false);
+	const [allowToggle, setAllowToggle] = useState(false);
 
 	console.log("App Running");
 
@@ -23,14 +24,21 @@ function App() {
 	// 	to use callback and Use Callback then returns that stored function and when the app function reruns
 	// 	Use Callback will look for that stored function which React stored for us and reuse that same function object.
 
+	const allowToggleHandler = () => {
+		setAllowToggle(true);
+	};
+
 	const toggleParagraphHandler = useCallback(() => {
-		setShowParagraph((prevShowParagraph) => !prevShowParagraph);
-	}, []);
+		if (allowToggle) {
+			setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+		}
+	}, [allowToggle]);
 
 	return (
 		<div className="app">
 			<h1>Hi there!</h1>
-			<DemoOutput show={false} />
+			<DemoOutput show={showParagraph} />
+			<Button onClick={allowToggleHandler}>Allow Toggling</Button>
 			<Button onClick={toggleParagraphHandler}>Toggle Paragraph</Button>
 		</div>
 	);
