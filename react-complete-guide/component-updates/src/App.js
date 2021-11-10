@@ -7,6 +7,8 @@ import "./css/App.css";
 function App() {
 	const [showParagraph, setShowParagraph] = useState(false);
 
+	console.log("App Running");
+
 	const toggleParagraphHandler = () => {
 		setShowParagraph((prevShowParagraph) => !prevShowParagraph);
 	};
