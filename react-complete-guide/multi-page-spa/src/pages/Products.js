@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Products() {
 	const listStyle = { listStyleType: "none" };
 
@@ -5,9 +7,15 @@ function Products() {
 		<section>
 			<h1>The Products Page</h1>
 			<ul style={listStyle}>
-				<li>A Book</li>
-				<li>Laptop</li>
-				<li>Water Bottle</li>
+				<li>
+					<Link to="/products/p1">A Book</Link>
+				</li>
+				<li>
+					<Link to="/products/p2">Laptop</Link>
+				</li>
+				<li>
+					<Link to="/products/p3">Water Bottle</Link>
+				</li>
 			</ul>
 		</section>
 	);
