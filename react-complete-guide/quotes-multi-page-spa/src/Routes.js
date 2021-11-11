@@ -4,6 +4,8 @@ import AllQuotes from "./pages/AllQuotes";
 import NewQuote from "./pages/NewQuote";
 import QuoteDetail from "./pages/QuoteDetail";
 
+import NotFound from "./pages/NotFound";
+
 function Routes() {
 	return (
 		<Switch>
@@ -18,6 +20,10 @@ function Routes() {
 			</Route>
 			<Route path="/new-quote">
 				<NewQuote />
+			</Route>
+
+			<Route path="*">
+				<NotFound />
 			</Route>
 		</Switch>
 	);
