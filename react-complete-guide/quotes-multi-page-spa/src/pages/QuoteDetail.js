@@ -6,7 +6,7 @@ import Comments from "../components/comments/Comments";
 
 const DUMMY_QUOTES = [
 	{ id: "q1", author: "Chirag", text: "Learning React is fun" },
-	{ id: "q2", author: "Chitti", text: "I'm Chitti" },
+	{ id: "q2", author: "Chitti", text: "I am Chitti" },
 ];
 
 function QuoteDetail() {
