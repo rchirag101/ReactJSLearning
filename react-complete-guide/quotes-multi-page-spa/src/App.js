@@ -1,9 +1,13 @@
 import Routes from "./Routes";
 
+import Layout from "./components/layout/Layout";
+
 function App() {
 	return (
 		<div>
-			<Routes />
+			<Layout>
+				<Routes />
+			</Layout>
 		</div>
 	);
 }
